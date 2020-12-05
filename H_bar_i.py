@@ -40,7 +40,7 @@ def get_entropy_u(df,rule,crit_str = "mean"):
         
 # In[2]
 rule_list = [1, 90, 178]
-fig = plt.figure()
+fig = plt.figure(figsize = (8,9))
 for i,rule in enumerate(rule_list):
     
     
@@ -56,7 +56,7 @@ for i,rule in enumerate(rule_list):
     ax.plot_wireframe(X,Y,Z, label="entropy")
     ax.set_xlabel(r'$d_{ini}$')
     ax.set_ylabel(r'$\alpha$')
-    ax.set_zlabel(r'$g_{\bar{H}_1}$')
+    ax.set_zlabel(r'$g_{\bar{M}_1}$')
     ax.set_title("("+str(i*3 + 1)+") "+"AECA "+str(rule))
     
     ax = fig.add_subplot(3,3,2+i*3,projection='3d')
@@ -67,7 +67,7 @@ for i,rule in enumerate(rule_list):
     ax.plot_wireframe(X,Y,Z, label="entropy")
     ax.set_xlabel(r'$d_{ini}$')
     ax.set_ylabel(r'$\alpha$')
-    ax.set_zlabel(r'$g_{\bar{H}_2}$')
+    ax.set_zlabel(r'$g_{\bar{M}_2}$')
     ax.set_title("("+str(i*3 + 2)+") "+"AECA "+str(rule))
     
     ax = fig.add_subplot(3,3,3+i*3,projection='3d')
@@ -78,5 +78,5 @@ for i,rule in enumerate(rule_list):
     ax.plot_wireframe(X,Y,Z, label="entropy")
     ax.set_xlabel(r'$d_{ini}$')
     ax.set_ylabel(r'$\alpha$')
-    ax.set_zlabel(r'$g_{\bar{H}_3}$')
+    ax.set_zlabel(r'$g_{\bar{M}_3}$')
     ax.set_title("("+str(i*3 + 3)+") "+"AECA "+str(rule))

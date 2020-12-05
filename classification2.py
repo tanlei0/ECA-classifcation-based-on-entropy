@@ -65,7 +65,7 @@ for i, rule in enumerate(rule_list):
     ax.plot_wireframe(X,Y,Z, label="entropy")
     ax.set_xlabel(r"$d_{ini}$")
     ax.set_ylabel(r"$\alpha$")
-    ax.set_zlabel(r"$g_{H_s}$")
+    ax.set_zlabel(r"$g_{H_N}$")
     ax.set_title("("+str(i+1)+")"" AECA "+ str(rule_list[i]))
     ndsp = np.zeros([run_num, n_cell])
     for j,ca in enumerate(ca_list):

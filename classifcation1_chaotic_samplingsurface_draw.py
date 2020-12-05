@@ -65,5 +65,5 @@ for j in range(2):
             ax.plot_wireframe(X,Y,Z, label="entropy")
             ax.set_xlabel(r"$d_{ini}$")
             ax.set_ylabel(r"$\alpha$")
-            ax.set_zlabel(r"$g_{\bar{H}}$")
+            ax.set_zlabel(r"$g_{\bar{M}}$")
             ax.set_title("("+str(i*2 + 2)+")"+"AECA "+str(rule))

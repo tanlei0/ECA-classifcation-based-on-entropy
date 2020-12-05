@@ -56,7 +56,7 @@ ax.plot_wireframe(Y, X, Z, label="entropy")
 
 ax.set_ylabel(r"$d_{ini}$")
 ax.set_xlabel(r"$\alpha$")
-ax.set_zlabel(r"$g_{\bar{H}}$")
+ax.set_zlabel(r"$g_{\bar{M}}$")
 ax.set_title("(b)")
 
 x,y,Z = get_entropy_u(df_sys_entropy, rule,"System_entropy")
@@ -66,7 +66,7 @@ ax.plot_wireframe(Y, X, Z, label="entropy")
 
 ax.set_ylabel(r"$d_{ini}$")
 ax.set_xlabel(r"$\alpha$")
-ax.set_zlabel(r"$g_{H_s}$")
+ax.set_zlabel(r"$g_{H_N}$")
 ax.set_title("(c)")
 
 
