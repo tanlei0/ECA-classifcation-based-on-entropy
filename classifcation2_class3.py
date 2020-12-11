@@ -1,5 +1,12 @@
 # -*- coding: utf-8 -*-
 """
+Created on Mon Dec  7 20:20:49 2020
+
+@author: think
+"""
+
+# -*- coding: utf-8 -*-
+"""
 Created on Tue Oct 20 23:22:57 2020
 
 @author: Qin Lei
@@ -35,11 +42,9 @@ def get_entropy_u(df,rule,crit_str = "mean"):
     
     return D, Alpha, u
 
-rule_list1 = [8, 140]
-rule_list2 = [2,38]
+
 rule_list3 = [23,33]
-rule_list4 = [6,18]
-rule_list5 = [156,170]
+
 is_class3 = False
 
 rule_list = rule_list3
@@ -58,11 +63,10 @@ for i, rule in enumerate(rule_list):
     
     ca_list = [eca1, eca2, eca3]
     
-    ax = fig.add_subplot(2,4,1+i*4,projection='3d')
-    if is_class3:
-        x,y,Z = get_entropy_u(df_entropy2, rule, "System_entropy")
-    else:
-        x,y,Z = get_entropy_u(df_entropy1, rule, "System_entropy")
+    ax = fig.add_subplot(2,5,1+i*5,projection='3d')
+
+    #x,y,Z = get_entropy_u(df_entropy2, rule, "System_entropy")
+    x,y,Z = get_entropy_u(df_entropy1, rule, "System_entropy")
     X, Y = np.meshgrid(x, y)
     ax.plot_wireframe(X,Y,Z, label="entropy")
     ax.set_xlabel(r"$d_{ini}$")
@@ -70,12 +74,25 @@ for i, rule in enumerate(rule_list):
     ax.set_zlabel(r"$g_{H_N}$")
     ax.set_title("("+str(i+1)+")"" AECA "+ str(rule_list[i]))
     ndsp = np.zeros([run_num, n_cell])
+    
+    ax = fig.add_subplot(2,5,5+i*5,projection='3d')
+
+    x,y,Z = get_entropy_u(df_entropy2, rule, "System_entropy")
+    
+    X, Y = np.meshgrid(x, y)
+    ax.plot_wireframe(X,Y,Z, label="entropy")
+    ax.set_xlabel(r"$d_{ini}$")
+    ax.set_ylabel(r"$\alpha$")
+    ax.set_zlabel(r"$g_{H_N}$")
+    ax.set_title("("+str(i+3)+")"" AECA "+ str(rule_list[i]))
+    ndsp = np.zeros([run_num, n_cell])
+    
     for j,ca in enumerate(ca_list):
         ca.run(isPrint=False)
         
         
         space2ndarray(ca.space, ndsp)
-        ax = fig.add_subplot(2,4,j+2+i*4)
+        ax = fig.add_subplot(2,5,j+2+i*5)
         ax.imshow(ndsp, interpolation='none', cmap=cmap)
 
         ax.set_title(title_list2[i*3 + j] + " " + r"$\alpha=$"+str(ca.alpha))
